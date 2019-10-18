@@ -1,0 +1,10 @@
+(cl:in-package hi-srv)
+(cl:export '(SRV_JOINTNAME-VAL
+          SRV_JOINTNAME
+          SRV_JOINTNAME_HITASK-VAL
+          SRV_JOINTNAME_HITASK
+          SRV_JOINTPOS_HITASK-VAL
+          SRV_JOINTPOS_HITASK
+          SRV_EXETIME_HITASK-VAL
+          SRV_EXETIME_HITASK
+))

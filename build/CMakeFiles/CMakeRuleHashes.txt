@@ -1,0 +1,15 @@
+# Hashes of file build rules.
+217f17bf05eeeba1e926f23a3733aabf /home/davide/Scrivania/Hi_Project/devel/include/hi/hiGenSer.h
+96a532c16d27d799af38f7d8f263effd /home/davide/Scrivania/Hi_Project/devel/lib/python2.7/dist-packages/hi/srv/__init__.py
+c94ec6fd8db76b800bd3d1aa29630d11 /home/davide/Scrivania/Hi_Project/devel/lib/python2.7/dist-packages/hi/srv/_hiGenSer.py
+0a1a63705d9125e1a70ca0cf7c8e2ffc /home/davide/Scrivania/Hi_Project/devel/share/common-lisp/ros/hi/srv/hiGenSer.lisp
+ef4acf16f6dbc2cbe41e48a9c3afbcb2 /home/davide/Scrivania/Hi_Project/devel/share/gennodejs/ros/hi/srv/hiGenSer.js
+ebc6fb76dbd079cfeb11e0800b11969b /home/davide/Scrivania/Hi_Project/devel/share/roseus/ros/hi/manifest.l
+1e76fe5685bd60d86c4a18c31d4407dd /home/davide/Scrivania/Hi_Project/devel/share/roseus/ros/hi/srv/hiGenSer.l
+22f3ef3e735ff3c78311a60e13cb801d CMakeFiles/clean_test_results
+15bba32dfbcda310f192f7ec46f0e2b4 hi/CMakeFiles/_hi_generate_messages_check_deps_hiGenSer
+612da1a088faac176727d38c5e0bc2b2 hi/CMakeFiles/hi_generate_messages_cpp
+612da1a088faac176727d38c5e0bc2b2 hi/CMakeFiles/hi_generate_messages_eus
+612da1a088faac176727d38c5e0bc2b2 hi/CMakeFiles/hi_generate_messages_lisp
+612da1a088faac176727d38c5e0bc2b2 hi/CMakeFiles/hi_generate_messages_nodejs
+612da1a088faac176727d38c5e0bc2b2 hi/CMakeFiles/hi_generate_messages_py

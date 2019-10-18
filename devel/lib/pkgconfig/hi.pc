@@ -1,0 +1,8 @@
+prefix=/home/davide/Scrivania/Hi_Project/devel
+
+Name: hi
+Description: Description of hi
+Version: 0.0.0
+Cflags: -I/home/davide/Scrivania/Hi_Project/devel/include
+Libs: -L/home/davide/Scrivania/Hi_Project/devel/lib 
+Requires: 
