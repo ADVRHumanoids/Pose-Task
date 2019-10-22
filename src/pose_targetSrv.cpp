@@ -54,7 +54,7 @@ int main(int argc, char **argv)
   {
     if(strcmp(pch,"devel")==0)
     {
-        strcat(filepath,"/src/Pose/configs/Pose_Task.yaml");
+        strcat(filepath,"/src/Pose-Task/configs/Pose_Task.yaml");
         stop=true;
     }
     else
