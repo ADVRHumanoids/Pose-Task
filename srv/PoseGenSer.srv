@@ -1,0 +1,7 @@
+string req_Pose
+---
+string[]  srv_TypeMov
+string[]  srv_JointName_hiTask
+float32[] srv_JointPos_hiTask
+float32[] srv_ExeTime_hiTask
+bool srv_PoseExist
