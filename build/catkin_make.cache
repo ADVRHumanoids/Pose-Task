@@ -1,2 +1,0 @@
-hi
--DCATKIN_DEVEL_PREFIX=/home/davide/Scrivania/Hi_Project/devel -DCMAKE_INSTALL_PREFIX=/home/davide/Scrivania/Hi_Project/install -G Unix Makefiles
