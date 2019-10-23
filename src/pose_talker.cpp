@@ -39,7 +39,10 @@ int main ( int argc, char **argv ) {
 
     int count_task=0,count_same_task,joint_indexTask;
 
-
+    Eigen::VectorXd qdot_max;
+    robot->sense();
+    robot->getVelocityLimits ( qdot_max );
+    
     while ( ros::ok() && ! ( count_task>srv.response.srv_JointName_hiTask.size()-1 ) && srv.response.srv_PoseExist ) {
 
         robot->sense();
@@ -47,16 +50,15 @@ int main ( int argc, char **argv ) {
         const double start_time = 0;
         double traj_time=0;
 
-        Eigen::VectorXd q_start,qdot_max,final_pos,q_ref, qdot_ref;
+        Eigen::VectorXd q_start,final_pos,q_ref, qdot_ref;
 
         bool diff_task = false;
 
         double duration = -1;
 
 
-        robot->getJointPosition ( q_start );
-        robot->getVelocityLimits ( qdot_max );
-        final_pos=q_start;
+        robot->getPositionReference ( q_start );
+        final_pos = q_start;
         const double max_qdot = qdot_max.minCoeff() * 0.2; // [rad/s]
 
         /*********Find Same Task to perform at the same time* *******/////
