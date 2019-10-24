@@ -9,7 +9,43 @@
 #include <XBotInterface/RobotInterface.h>
 #include <RobotInterfaceROS/ConfigFromParam.h>
 
-
+bool PersonalThirdTrajectory(const Eigen::VectorXd qi, 
+                             const Eigen::VectorXd qf, 
+                             const Eigen::VectorXd qdot_max,
+                             const double t,
+                             const double tf, 
+                             Eigen::VectorXd& ref, 
+                             Eigen::VectorXd& ref_dot) 
+{
+    double a0,a2,a3,qdiff;
+    int vec_size     = qi.size();
+    ref.resize(vec_size);
+    ref_dot.resize(vec_size);
+    bool Trajectory_Compl=false;
+    if(tf > 0 && t<tf)
+    {
+        for (int i=0; i<vec_size; i++) 
+        {
+            qdiff=qf(i)-qi(i);
+            a0=qi(i);
+            a2=3*qdiff/std::pow(tf,2);
+            a3=-2*qdiff/std::pow(tf,3); 
+            ref(i)     = a3* std::pow(t,3) + a2* std::pow(t,2) + a0; 
+            ref_dot(i)   = 3*a3* std::pow(t,2)+2*a2*t; 
+            if(ref_dot(i) < 0)
+                ref_dot(i) = 0.0*qdot_max(i);   
+        }
+    }
+    else
+    {
+    ref = qi; 
+    ref_dot = 0.0*qi; 
+    Trajectory_Compl=true;
+    }
+  
+return(Trajectory_Compl);
+    
+}
 
 int main ( int argc, char **argv ) {
     ros::init ( argc, argv, "Pose_Talker" );
@@ -37,7 +73,7 @@ int main ( int argc, char **argv ) {
 
     client.call ( srv );
 
-    int count_task=0,count_same_task,joint_indexTask;
+    int count_task=0,count_same_task,joint_indexTask,indexTime=0;
 
     Eigen::VectorXd qdot_max;
     robot->sense();
@@ -48,7 +84,8 @@ int main ( int argc, char **argv ) {
         robot->sense();
 
         const double start_time = 0;
-        double traj_time=0;
+        //double traj_time=0;
+        double traj_time,time=0;
 
         Eigen::VectorXd q_start,final_pos,q_ref, qdot_ref;
 
@@ -77,8 +114,9 @@ int main ( int argc, char **argv ) {
         }
         count_same_task=count_same_task-1;
         int NumSameTask=count_same_task-count_task;
+        traj_time=srv.response.srv_ExeTime_hiTask[indexTime];
 
-        ROS_INFO ( "I'm going to perform: [%d] Task(s)",NumSameTask );
+        ROS_INFO ( "I'm going to perform: [%d] Task(s) in [%f]",NumSameTask,traj_time);
 
         count_task=count_same_task;
 
@@ -86,26 +124,31 @@ int main ( int argc, char **argv ) {
         bool completed_mov = false;
         const double dt = 0.1; // 10 Hz loop
         
+        
         /********* Joint Trajectory Plan* *******/////
 
 
         while ( !completed_mov ) {
+            
+            completed_mov=PersonalThirdTrajectory(q_start,final_pos,qdot_max,time,traj_time,q_ref, qdot_ref);
 
-            XBot::Utils::FifthOrderTrajectory ( start_time, q_start, final_pos, max_qdot,traj_time,q_ref, qdot_ref, duration );
-
+            //XBot::Utils::FifthOrderTrajectory ( start_time, q_start, final_pos, max_qdot,traj_time,q_ref, qdot_ref, duration );
+            if(!completed_mov)
+            {
 
             robot->setPositionReference ( q_ref );
             robot->setVelocityReference ( qdot_ref );
             robot->move();
+            }
 
-            //hi_pub.publish(JointCmd);
-
-            completed_mov = traj_time >= ( start_time + duration );
-            traj_time += dt;
+            //completed_mov = traj_time >= ( start_time + duration );
+            //traj_time += dt;
+            time +=dt;
 
             usleep ( 1e6*dt );
 
         }
+        indexTime++;
 
         ros::spinOnce();
 
