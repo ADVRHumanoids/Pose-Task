@@ -16,8 +16,8 @@ set_xbot_config /opt/xbot/build/install/share/xbot/configs/CentauroConfig/centau
 
 Note: It's possible to choose any robot, it's important to select the righ joint with the specific movement writing them the pose yaml file:
 
-Pose Name:
-  
+
+    Pose Name:
           Movements: [Move_1, Move_2,...]
           Move_1:
           JointNameMov: ["joint_name1","joint_name2",...]
