@@ -70,13 +70,11 @@ In another two terminals launch:
  ```
    . ~/src/catkin_pose_ws/devel/setup.bash
  ```
-
-First terminal : 
+Terminal 1: 
                     ```
                     rosrun pose pose_targetSrv 
                     ```   
-                    
-Second terminal :  
+Terminal 2:  
                     ```
                     rosrun pose pose_targetSrv 
                     ```  
