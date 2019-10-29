@@ -84,4 +84,4 @@ Terminal 2:
 
 This should be the visualization:
 
-![XBotCore basic example with Centauro](https://github.com/ADVRHumanoids/XBotControl/blob/master/xbotcore_centauro_basic.png)
+![XBotCore basic example with Centauro](https://github.com/ADVRHumanoids/Pose-Task/blob/master/HelloPose_Centauro.png)
