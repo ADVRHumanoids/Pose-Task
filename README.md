@@ -6,7 +6,7 @@ Repository for a specific pose request to a generic robot.
 The package allows to perform a specific pose using this [Pose_Task file](https://github.com/ADVRHumanoids/Pose-Task/blob/master/configs/Pose_Task.yaml) in yaml format.
 A [ROS Service Server](https://github.com/ADVRHumanoids/Pose-Task/blob/master/src/pose_targetSrv.cpp) it's responsable to read the file and send the information to the [ROS client](https://github.com/ADVRHumanoids/Pose-Task/blob/master/src/pose_talker.cpp) that  will generate a trajectory in the joint space to the robot using XBotCore.
 
-# Downloading
+# Start
 
 Clone and build the pose project: there are several options to do it, but probably the easiest is using the catkin build tool from ROS.
 
@@ -19,7 +19,7 @@ cd ..
 catkin_make
 ```
 
-# Runnig
+# Run
 
 The selected robot was Centauro, whose basic config file can be set in this way:
 
