@@ -14,7 +14,16 @@ The selected robot was Centauro, whose basic config file can be set in this way:
 set_xbot_config /opt/xbot/build/install/share/xbot/configs/CentauroConfig/centauro_basic.yaml
 ```
 
-Note: It's possible to choose any robot, it's important to select the righ joint with the specific movement writing them the pose yaml file.
+Note: It's possible to choose any robot, it's important to select the righ joint with the specific movement writing them the pose yaml file:
+
+Pose Name:
+  
+          Movements: [Move_1, Move_2,...]
+          Move_1:
+          JointNameMov: ["joint_name1","joint_name2",...]
+          PositionNameMov: [pos_joint_name1,pos_joint_name2,...]
+          TimeMov: [Time_to_Exe the Trajectory]
+
 
 As first thing you should run [roscore](http://wiki.ros.org/roscore):
 
