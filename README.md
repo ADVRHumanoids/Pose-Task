@@ -67,14 +67,17 @@ rosservice call /xbotcore/XBotCommunicationPlugin_switch 1
 ```
 
 In another two terminals launch:
+```
+ . ~/src/catkin_pose_ws/devel/setup.bash
  ```
-   . ~/src/catkin_pose_ws/devel/setup.bash
- ```
+
 Terminal 1: 
+
                     ```
                     rosrun pose pose_targetSrv 
                     ```   
 Terminal 2:  
+
                     ```
                     rosrun pose pose_targetSrv 
                     ```  
