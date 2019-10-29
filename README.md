@@ -27,7 +27,7 @@ The selected robot was Centauro, whose basic config file can be set in this way:
 set_xbot_config /opt/xbot/build/install/share/xbot/configs/CentauroConfig/centauro_basic.yaml
 ```
 
-Note: It's possible to choose any robot, it's important to select the righ joint with the specific movement writing them the pose yaml file:
+Note: It's possible to choose any robot, it's important to select the righ joint with the specific movement writing them int the pose yaml file:
 
 
     Pose Name:
@@ -62,19 +62,21 @@ This should be the visualization:
 
 ![XBotCore basic example with Centauro](https://github.com/ADVRHumanoids/XBotControl/blob/master/xbotcore_centauro_basic.png)
 
+
+Start XBot Communication Plugin:
+
 ```
 rosservice call /xbotcore/XBotCommunicationPlugin_switch 1
 ```
 
 In another two terminals launch:
+``` 
+. ~/src/catkin_pose_ws/devel/setup.bash
 ```
- . ~/src/catkin_pose_ws/devel/setup.bash
- ```
-
 Terminal 1: 
-
-                    rosrun pose pose_targetSrv   
+            
+            rosrun pose pose_targetSrv   
 Terminal 2:  
-
-                    rosrun pose pose_talker Centauro_Hello_Pose 
+            
+            rosrun pose pose_talker Centauro_Hello_Pose 
                     
