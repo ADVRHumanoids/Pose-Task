@@ -73,12 +73,8 @@ In another two terminals launch:
 
 Terminal 1: 
 
-                    ```
-                    rosrun pose pose_targetSrv 
-                    ```   
+                    rosrun pose pose_targetSrv   
 Terminal 2:  
 
-                    ```
-                    rosrun pose pose_targetSrv 
-                    ```  
+                    rosrun pose pose_talker Centauro_Hello_Pose 
                     
