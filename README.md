@@ -27,7 +27,7 @@ The selected robot was Centauro, whose basic config file can be set in this way:
 set_xbot_config /opt/xbot/build/install/share/xbot/configs/CentauroConfig/centauro_basic.yaml
 ```
 
-Note: It's possible to choose any robot, it's important to select the righ joint with the specific movement writing them int the pose yaml file:
+Note: It's possible to choose any robot, it's important to select the right joints with the specific movements writing them into the pose yaml file:
 
 
     Pose Name:
