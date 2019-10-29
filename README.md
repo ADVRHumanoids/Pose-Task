@@ -80,3 +80,8 @@ Terminal 2:
             
             rosrun pose pose_talker Centauro_Hello_Pose 
                     
+# Runnig
+
+This should be the visualization:
+
+![XBotCore basic example with Centauro](https://github.com/ADVRHumanoids/XBotControl/blob/master/xbotcore_centauro_basic.png)
