@@ -62,7 +62,22 @@ This should be the visualization:
 
 ![XBotCore basic example with Centauro](https://github.com/ADVRHumanoids/XBotControl/blob/master/xbotcore_centauro_basic.png)
 
+```
+rosservice call /xbotcore/XBotCommunicationPlugin_switch 1
+```
+
 In another two terminals launch:
+ ```
+   . ~/src/catkin_pose_ws/devel/setup.bash
+ ```
 
-. ~/src/catkin_pose_ws/devel/setup.bash
-
+First terminal : 
+                    ```
+                    rosrun pose pose_targetSrv 
+                    ```   
+                    
+Second terminal :  
+                    ```
+                    rosrun pose pose_targetSrv 
+                    ```  
+                    
