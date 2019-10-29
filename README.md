@@ -80,7 +80,7 @@ Terminal 2:
             
             rosrun pose pose_talker Centauro_Hello_Pose 
                     
-# Runnig
+# Result
 
 This should be the visualization:
 
