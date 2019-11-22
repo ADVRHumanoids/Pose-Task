@@ -5,7 +5,7 @@
 #include <string>
 #include "yaml-cpp/yaml.h"
 
-char filepath[]="";
+char *filepath;
 
  bool PoseTarget(pose::PoseGenSer::Request &req,pose::PoseGenSer::Response &res)
  {
@@ -44,26 +44,36 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "Pose_Target_Definition");
   ros::NodeHandle n;
+  char configpath[]="/build/install/configs/Pose_Task.yaml";
 
   /*********Find ymal Path inside the project ********/////
+  
+  filepath = (char *) malloc ((strlen(argv[0])+strlen(configpath))*sizeof(char));
+  
+  strcpy(filepath, "");
+  
   char * pch;
   
   pch = strtok (argv[0],"/");
+  
   bool stop=false;
   while (pch != NULL && !stop)
   {
-    if(strcmp(pch,"devel")==0)
+    if(strcmp(pch,"build")==0)
     {
-        strcat(filepath,"/src/Pose-Task/configs/Pose_Task.yaml");
+        strcat(filepath,configpath);
         stop=true;
     }
     else
     {
+           
         strcat(filepath,"/"); 
-        strcat(filepath,pch); 
+        strcat(filepath,pch);
         pch = strtok (NULL, "/");
     }
   }
+  
+  std::cout << filepath << std::endl;
   
   /*********Pose Target Identification Service-----Server ********/////
   
@@ -71,6 +81,8 @@ int main(int argc, char **argv)
   ros::ServiceServer service = n.advertiseService("Pose_TargetIdent", PoseTarget);
   ROS_INFO("Wait to send Pose Target.");
   ros::spin();
+  
+  free(filepath);
   
   return 0;
  
